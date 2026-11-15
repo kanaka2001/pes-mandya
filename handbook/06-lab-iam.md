@@ -4,6 +4,7 @@
 
 **By the end of this chapter you can:**
 - Distinguish authentication and authorization
+- Explain RBAC, ABAC, and the Principle of Least Privilege
 - Explain why you should not use the root account for daily work
 - Create an IAM user with AWS Console access and verify the login
 
@@ -70,6 +71,54 @@ Example of a least-privilege policy (read-only access to one bucket):
   ]
 }
 ```
+
+---
+
+## 🏷️ Attribute-Based Access Control (ABAC)
+
+**ABAC** decides access using **attributes**, which AWS implements as **tags**. Instead of writing one policy per job role, you write one policy that compares tags on the person (or role) with tags on the resource.
+
+> 💡 **Example:** a user tagged `Project = Alpha` can start and stop only the EC2 instances tagged `Project = Alpha`. When a new project starts, you tag the people and resources. You do not write a new policy.
+
+### RBAC vs. ABAC
+
+| | RBAC | ABAC |
+|---|---|---|
+| Access based on | Job function (role or group) | Tags on the user and the resource |
+| New project or team | Create new roles and policies | Apply matching tags |
+| Scaling | Policy count grows with roles | One policy covers many cases |
+| Precision | Coarser | Finer-grained |
+| Best for | Stable job functions | Many teams or projects that change often |
+
+### How it works in AWS
+
+1. Tag the **principal** (IAM user or role), for example `Project = Alpha`
+2. Tag the **resource** (EC2 instance, S3 bucket), for example `Project = Alpha`
+3. Write a policy whose condition checks that the two tags match
+
+Example policy: allow starting and stopping only the instances whose `Project` tag matches the user's `Project` tag.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["ec2:StartInstances", "ec2:StopInstances"],
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:ResourceTag/Project": "${aws:PrincipalTag/Project}"
+        }
+      }
+    }
+  ]
+}
+```
+
+> ⚠️ **Protect your tags.** If users can edit their own tags, they can give themselves more access. Limit who may add or change tags.
+
+> 📌 ABAC is covered here as a concept. The lab below uses a simple user with direct permissions.
 
 ---
 
@@ -196,6 +245,7 @@ Confirm: you land on the AWS Console dashboard ✅
 - [ ] Credentials downloaded and saved
 - [ ] New user login verified in an incognito window
 - [ ] I can explain least privilege in one sentence
+- [ ] I can explain how ABAC differs from RBAC
 
 ---
 

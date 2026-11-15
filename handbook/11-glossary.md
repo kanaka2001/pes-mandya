@@ -19,6 +19,22 @@
 
 ---
 
+## 📝 Feedback
+
+Your feedback helps us improve future workshops. It takes about 2 minutes.
+
+<p align="center">
+  <a href="https://forms.gle/fgrhoa86RhHNgEZd7">
+    <img src="workshop-resources/images/qr-workshop-feedback.png" width="220" alt="Workshop Feedback Form QR Code"/>
+  </a>
+  <br/><br/>
+  <strong>Scan the QR code or click the link:</strong>
+  <br/>
+  <a href="https://forms.gle/fgrhoa86RhHNgEZd7"><strong>forms.gle/fgrhoa86RhHNgEZd7</strong></a>
+</p>
+
+---
+
 ## 📝 Notes
 
 &nbsp;
