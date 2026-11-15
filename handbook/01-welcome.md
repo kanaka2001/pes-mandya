@@ -1,27 +1,41 @@
-# Welcome
+# Chapter 01 — Welcome
 
-Welcome to the **AWS Cloud Workshop** at PES Mandya. Today you will learn how the cloud works, then build real resources in the AWS Console.
-
-## Today's Schedule
-
-| Time | Session | Type |
-|---|---|---|
-| 10:45 – 11:00 AM | Cloud Computing: Before & After the Cloud | Theory |
-| 11:00 – 11:20 AM | AWS Fundamentals, Global Infrastructure & Service Models | Theory |
-| 11:20 – 11:50 AM | Amazon VPC & Cloud Networking | Theory + Console walkthrough |
-| 11:50 AM – 12:00 PM | Transition, Q&A & Lab Readiness Check | Q&A |
-| 12:00 – 12:15 PM | AWS Identity and Access Management (IAM) | Hands-on lab |
-| 12:15 – 12:30 PM | Amazon S3 | Hands-on lab |
-| 12:30 – 01:05 PM | Amazon EC2 & Network/Application Security | Hands-on lab |
-| 01:05 – 01:20 PM | AWS Builder Center & Well-Architected Framework | Theory + Exploration |
-| 01:20 – 01:30 PM | AWS Academy & AWS SBG Pathways | Closing |
-
-## How to use this handbook
-
-- Each chapter is one session. Open the chapter that matches the current time slot.
-- Theory chapters explain the concepts. Lab chapters (IAM, S3, EC2) have step-by-step instructions.
-- Images and screenshots are stored in `workshop-resources/images/`.
+> Welcome to the **AWS Cloud Workshop** at PES Mandya. Today you learn how the cloud works, then build real resources in the AWS Console.
 
 ---
 
-[← Previous: Before You Begin](00-prerequisites.md) | [Home](README.md) | [Next: Cloud Computing: Before & After the Cloud →](02-cloud-history.md)
+## 🗓️ Today's Schedule
+
+| Time | Chapter | Type |
+|---|---|---|
+| 10:45 – 11:00 AM | [02 — Cloud Computing: Before & After](02-cloud-history.md) | 📖 Theory |
+| 11:00 – 11:20 AM | [03 — AWS Fundamentals & Service Models](03-aws-fundamentals.md) | 📖 Theory |
+| 11:20 – 11:50 AM | [04 — Amazon VPC & Cloud Networking](04-vpc-networking.md) | 📖 Theory + 🖥️ Console walkthrough |
+| 11:50 AM – 12:00 PM | [05 — Transition, Q&A & Lab Readiness](05-readiness-check.md) | 💬 Q&A |
+| 12:00 – 12:15 PM | [06 — Lab: IAM](06-lab-iam.md) | 🧪 Hands-on lab |
+| 12:15 – 12:30 PM | [07 — Lab: S3](07-lab-s3.md) | 🧪 Hands-on lab |
+| 12:30 – 01:05 PM | [08 — Lab: EC2 & Security](08-lab-ec2.md) | 🧪 Hands-on lab |
+| 01:05 – 01:20 PM | [09 — Builder Center & Well-Architected](09-well-architected.md) | 📖 Theory |
+| 01:20 – 01:30 PM | [10 — AWS Academy & AWS SBG Pathways](10-academy-sbg.md) | 🎓 Closing |
+
+---
+
+## 📘 How to Use This Handbook
+
+- Each chapter matches one session. Open the chapter for the current time slot.
+- 📖 Theory chapters explain concepts. 🧪 Lab chapters give step-by-step instructions.
+- Every chapter ends with a checklist and a link to the next chapter.
+- Images are stored in `workshop-resources/images/`.
+
+---
+
+## ✅ Chapter Checklist
+
+- [ ] Prerequisites from Chapter 00 are complete
+- [ ] I know today's schedule
+- [ ] I have this handbook open
+
+---
+
+> ✅ **Ready? Let's begin:**
+> ### 👉 [Chapter 02 — Cloud Computing: Before & After the Cloud](02-cloud-history.md)

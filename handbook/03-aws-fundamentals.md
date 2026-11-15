@@ -1,14 +1,15 @@
-# AWS Fundamentals, Global Infrastructure & Service Models
+# Chapter 03 — AWS Fundamentals, Global Infrastructure & Service Models
 
-**Time:** 11:00 – 11:20 AM
+> ⏰ 11:00 – 11:20 AM | 📖 Theory
 
-## Learning objectives
+**By the end of this chapter you can:**
+- Identify the essential characteristics of cloud computing
+- Describe the AWS Global Infrastructure
+- Distinguish deployment models and service models
 
-- Identify the essential characteristics of cloud computing.
-- Describe the AWS Global Infrastructure.
-- Distinguish deployment models and service models.
+---
 
-## 3.1 Essential cloud characteristics
+## 🔑 Essential Cloud Characteristics
 
 - On-demand self-service
 - Broad network access
@@ -16,23 +17,29 @@
 - Rapid elasticity
 - Measured service
 
-## 3.2 AWS Global Infrastructure
+---
+
+## 🌍 AWS Global Infrastructure
 
 | Component | Description |
 |---|---|
-| **Region** | A geographic area containing multiple isolated Availability Zones. |
-| **Availability Zone (AZ)** | One or more data centers with independent power and networking, within a Region. |
-| **Edge Locations** | Sites used by services such as CloudFront to deliver content with low latency. |
+| 🗺️ **Region** | A geographic area containing multiple isolated Availability Zones |
+| 🏭 **Availability Zone (AZ)** | One or more data centers with independent power and networking, within a Region |
+| 📡 **Edge Locations** | Sites used by services such as CloudFront to deliver content with low latency |
 
-Why it matters: spreading workloads across AZs improves availability and fault tolerance. Choosing a Region near users reduces latency and can help meet data-residency requirements.
+> 💡 Spreading workloads across AZs improves availability. Choosing a Region near your users reduces latency and can help meet data-residency requirements.
 
-## 3.3 Deployment models
+---
 
-- **Public cloud:** resources run on the provider's infrastructure (for example, AWS).
-- **Private cloud:** infrastructure used by a single organization.
-- **Hybrid cloud:** on-premises and cloud combined.
+## 🏗️ Deployment Models
 
-## 3.4 Core service models
+- **Public cloud:** resources run on the provider's infrastructure (for example, AWS)
+- **Private cloud:** infrastructure used by a single organization
+- **Hybrid cloud:** on-premises and cloud combined
+
+---
+
+## 🧱 Core Service Models
 
 | Model | You manage | Provider manages | Example |
 |---|---|---|---|
@@ -40,28 +47,40 @@ Why it matters: spreading workloads across AZs improves availability and fault t
 | **PaaS** | Apps, data | Platform, OS, infrastructure | AWS Elastic Beanstalk |
 | **SaaS** | Just use it | Everything | Amazon WorkMail, Gmail |
 
-## 3.5 Emerging models
+---
 
-- **FaaS (Function as a Service):** run code without managing servers, for example AWS Lambda.
-- **CaaS (Containers as a Service):** managed container platforms, for example Amazon ECS and EKS.
-- **DBaaS (Database as a Service):** managed databases, for example Amazon RDS and DynamoDB.
-- **DaaS (Desktop as a Service):** cloud-hosted virtual desktops, for example Amazon WorkSpaces.
+## ✨ Emerging Models
 
-## 3.6 Shared Responsibility Model
+| Model | Meaning | AWS example |
+|---|---|---|
+| **FaaS** | Run code without managing servers | AWS Lambda |
+| **CaaS** | Managed container platforms | Amazon ECS, EKS |
+| **DBaaS** | Managed databases | Amazon RDS, DynamoDB |
+| **DaaS** | Cloud-hosted virtual desktops | Amazon WorkSpaces |
 
-- **AWS:** security *of* the cloud (hardware, facilities, core services).
-- **Customer:** security *in* the cloud (data, access, configuration).
+---
 
-## Key takeaways
+## 🤝 Shared Responsibility Model
 
-- A Region contains multiple AZs.
-- Higher-level service models mean less for you to manage.
+- **AWS:** security *of* the cloud (hardware, facilities, core services)
+- **Customer:** security *in* the cloud (data, access, configuration)
 
-## Discussion questions
+---
+
+## 💬 Discussion
 
 1. Which service model would you pick for a college website? Why?
 2. Why might a company choose two Regions?
 
 ---
 
-[← Previous: Cloud Computing: Before & After the Cloud](02-cloud-history.md) | [Home](README.md) | [Next: Amazon VPC & Cloud Networking →](04-vpc-networking.md)
+## ✅ Chapter Checklist
+
+- [ ] I can explain Region, AZ, and Edge Location
+- [ ] I can tell IaaS, PaaS, and SaaS apart
+- [ ] I know what FaaS, CaaS, DBaaS, and DaaS mean
+
+---
+
+> ✅ **Next up:**
+> ### 👉 [Chapter 04 — Amazon VPC & Cloud Networking](04-vpc-networking.md)
