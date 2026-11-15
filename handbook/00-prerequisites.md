@@ -44,15 +44,31 @@ If you have not created an AWS account yet, follow these steps **before the work
 
 ---
 
-## 🌐 Join the Community Before the Workshop
+## 🎁 Sign Up on AWS Builder Center — Do This Now
 
-> 🛠️ **To be added by the facilitators:** WhatsApp channel, Instagram, LinkedIn links and the Builder Center sign-up link or QR code.
+AWS Builder Center is the official community platform for AWS builders. Signing up through the workshop link unlocks **free student rewards worth up to $579** (details in [Chapter 09](09-well-architected.md)).
+
+<p align="center">
+  <b>Sign-up link:</b> <a href="https://bit.ly/450cFtS"><b>https://bit.ly/450cFtS</b></a>
+  <br/><br/>
+  <b>Or scan the QR code:</b><br/><br/>
+  <img src="workshop-resources/images/qr-builder-center.png" width="200" alt="AWS Builder Center QR Code"/>
+</p>
+
+> No credit card needed. Student verification takes a few minutes via SheerID.
+
+---
+
+## 🌐 Join the Community Before the Workshop
 
 | Platform | Link |
 |:---:|:---:|
-| 📢 **WhatsApp Channel** | _To be added_ |
-| 📸 **Instagram** | _To be added_ |
-| 💼 **LinkedIn** | _To be added_ |
+| 🤝 **Meetup (official, join first)** | [Join the AWS SBG Meetup](https://www.meetup.com/aws-sbg-at-don-bosco-institute-of-technology-bangalore/) |
+| 📢 **WhatsApp Channel** | [Join Here](https://whatsapp.com/channel/0029Vb76rEYATRSlFR1mOg2X) |
+| 📸 **Instagram** | [@awssbg_dbit](https://www.instagram.com/awssbg_dbit/) |
+| 💼 **LinkedIn** | [AWS SBG DBIT](https://www.linkedin.com/company/aws-sbg-dbit/) |
+
+> 💬 The WhatsApp channel shares real-time updates and lab resources during the workshop.
 
 ---
 
@@ -61,7 +77,11 @@ If you have not created an AWS account yet, follow these steps **before the work
 - [ ] Laptop, charger, and internet ready
 - [ ] AWS account created and working
 - [ ] Able to sign in at the AWS Console
-- [ ] Joined the community channels for workshop updates
+- [ ] Signed up on AWS Builder Center via the link or QR code above
+- [ ] Student verification started via SheerID
+- [ ] Joined the AWS SBG Meetup group
+- [ ] Joined the WhatsApp channel for workshop updates
+- [ ] Following [@awssbg_dbit](https://www.instagram.com/awssbg_dbit/) on Instagram
 
 ---
 

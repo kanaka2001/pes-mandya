@@ -1,15 +1,30 @@
-# Chapter 07 — Lab: Amazon S3 (Simple Storage Service)
+# Chapter 07 — Hands-On Lab: Amazon S3 Static Website
 
 > ⏰ 12:15 – 12:30 PM | 🧪 Hands-on lab
 
 **By the end of this chapter you can:**
 - Explain object storage and core S3 concepts
-- Create a bucket and manage objects
-- Understand permissions and access policies
+- Create a bucket and upload objects
+- Host a static website and control access with a bucket policy
 
 ---
 
-## 🪣 Core Concepts
+## 🪣 What Is Amazon S3?
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sashee/aws-svg-icons/master/docs/Architecture-Service-Icons_07302021/Arch_Storage/64/Arch_Amazon-Simple-Storage-Service_64.svg" width="80" alt="Amazon S3"/>
+  <br/>
+  <b>Amazon Simple Storage Service</b>
+</p>
+
+S3 stores files in the cloud and can give each one a URL anyone can visit. For web hosting this means:
+
+- No server to buy or configure
+- No web server software to install
+- Upload an HTML file and it is accessible on the internet
+- Pay only for the storage used
+
+> S3 hosts **static** content only: HTML, CSS, JavaScript, images. It cannot run server-side code such as a Python or Node.js backend.
 
 | Term | Meaning |
 |---|---|
@@ -19,48 +34,211 @@
 | **Storage class** | Cost and access tier, for example S3 Standard, S3 Glacier |
 | **Versioning** | Keeps multiple versions of an object |
 
-> 💡 S3 is designed for 99.999999999% durability ("11 nines") and scales without limit.
+> 💡 S3 is designed for 99.999999999% durability ("11 nines").
 
 ---
 
-## 🔐 Access Control
+## 📋 Prepare These Files First
 
-- **Block Public Access** is on by default. Keep it on unless you have a clear need
-- **IAM policies** control what identities can do
-- **Bucket policies** control access at the bucket level
+Create these two files on your laptop before starting.
+
+**`index.html`**: open any text editor and paste:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My AWS S3 Website</title>
+    <style>
+      body { font-family: Arial, sans-serif; text-align: center;
+             padding: 60px; background: #0f1117; color: #fff; }
+      h1   { color: #FF9900; }
+      p    { color: #ccc; }
+    </style>
+  </head>
+  <body>
+    <h1>☁ Hello from Amazon S3!</h1>
+    <p>Hosted during the AWS Cloud Workshop, PES Mandya</p>
+    <p>Built by: <strong>YOUR NAME HERE</strong></p>
+  </body>
+</html>
+```
+
+**`error.html`**: paste:
+
+```html
+<!DOCTYPE html>
+<html>
+  <body style="font-family:Arial;text-align:center;padding:60px;">
+    <h1>404 — Page Not Found</h1>
+    <a href="index.html">← Go back home</a>
+  </body>
+</html>
+```
+
+**Bucket name:** choose something globally unique, for example `my-pes-website-` plus your roll number.
 
 ---
 
-## 🧪 Lab: Create a Bucket and Manage Objects
+## 👣 Step-by-Step Lab
 
-1. Open **S3** in the Console
-2. Choose **Create bucket**
-3. Enter a globally unique name, such as `pes-workshop-<yourname>-<number>`
-4. Select the Region provided by the facilitator
-5. Leave **Block all public access** enabled
-6. Choose **Create bucket**
-7. Open the bucket and choose **Upload** to add a file
-8. Select the object and review its properties
-9. Try to open the object URL. You get *Access Denied* because it is private
-10. Explore the **Permissions** tab and the bucket policy section
-11. (Optional) Enable **Versioning** and upload the file again
+### Phase A — Create the S3 Bucket
+
+#### Step 1 — Open S3
+
+```
+AWS Console → Search bar → Type: S3 → Click S3
+```
+
+When you first open S3, your bucket list is empty. That is expected.
+
+<p align="center">
+  <img src="workshop-resources/images/s3-buckets-list-empty.png" width="720" alt="S3 Buckets list: empty"/>
+  <br/>
+  <em>S3 Buckets list: "No buckets" is the correct starting state</em>
+</p>
+
+#### Step 2 — Start Creating a Bucket
+
+Click **Create bucket** (orange button).
+
+<p align="center">
+  <img src="workshop-resources/images/s3-service-landing.png" width="720" alt="S3 service landing page"/>
+  <br/>
+  <em>S3 service home: click "Create bucket" to begin</em>
+</p>
+
+#### Step 3 — Fill in the Bucket Configuration
+
+```
+Bucket type       →  General purpose (default)
+Bucket name       →  Enter your unique bucket name
+AWS Region        →  Asia Pacific (Mumbai) ap-south-1
+Object Ownership  →  ACLs disabled (recommended), leave as default
+```
+
+<p align="center">
+  <img src="workshop-resources/images/s3-create-bucket-config.png" width="720" alt="Create bucket: General configuration"/>
+  <br/>
+  <em>Enter your bucket name and keep the Region as Mumbai (ap-south-1)</em>
+</p>
+
+#### Step 4 — Unblock Public Access
+
+```
+Block Public Access settings:
+  ☐ UNCHECK "Block all public access"
+  ✅ CHECK  "I acknowledge that current settings might result
+             in this bucket and objects becoming public"
+Bucket Versioning  →  Disable
+Encryption         →  Leave default (SSE-S3)
+→ Click "Create bucket"
+```
+
+<p align="center">
+  <img src="workshop-resources/images/s3-create-bucket-public-access.png" width="720" alt="Create bucket: unblock public access"/>
+  <br/>
+  <em>Uncheck "Block all public access". This is required for static website hosting</em>
+</p>
+
+> ⚠️ Normally you keep **Block all public access** ON. We turn it off only because this bucket is a public website. Never do this for buckets holding private data.
+
+---
+
+### Phase B — Upload Your Files
+
+```
+Click your bucket name in the list
+Objects tab → Click "Upload"
+→ Add files → Select index.html and error.html
+→ Click "Upload"
+→ Wait for the green "Upload succeeded" banner → Click "Close"
+```
+
+---
+
+### Phase C — Enable Static Website Hosting
+
+```
+Properties tab → Scroll to the bottom → "Static website hosting" → Edit
+Static website hosting  →  Enable
+Hosting type            →  Host a static website
+Index document          →  index.html
+Error document          →  error.html
+→ Click "Save changes"
+```
+
+---
+
+### Phase D — Add the Public Bucket Policy
+
+```
+Permissions tab → Bucket policy → Edit
+```
+
+Paste this and replace `YOUR-BUCKET-NAME` with your actual bucket name:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"
+    }
+  ]
+}
+```
+
+```
+→ Click "Save changes"
+```
+
+---
+
+### Phase E — Visit Your Live Website
+
+```
+Properties tab → Static website hosting section
+→ Click the Bucket website endpoint URL
+```
+
+**Your website is now live on the internet.** 🎉
 
 ---
 
 ## 🧹 Clean Up
 
-- Delete the objects, then delete the bucket
+Delete the objects, then delete the bucket, once the workshop ends.
+
+---
+
+## 🌐 Show It Off!
+
+> 📸 Screenshot your live S3 website and share it with **[@awssbg_dbit](https://www.instagram.com/awssbg_dbit/)** on Instagram.
+> **#AWSBuildersLab #AmazonS3**
 
 ---
 
 ## ✅ Chapter Checklist
 
-- [ ] Created a bucket with Block Public Access on
-- [ ] Uploaded an object
-- [ ] Saw that the object is private by default
-- [ ] Cleaned up the bucket
+- [ ] S3 bucket created in the Mumbai Region
+- [ ] `index.html` and `error.html` uploaded
+- [ ] Static website hosting enabled
+- [ ] Public bucket policy applied
+- [ ] Website URL is live and opens in the browser
+
+---
+
+## 🏆 Badge Unlocked
+
+> ### 🪣 STATIC ARCHITECT
+> You shipped a website without touching a single server.
 
 ---
 
 > ✅ **Next up:**
-> ### 👉 [Chapter 08 — Lab: Amazon EC2 & Network/Application Security](08-lab-ec2.md)
+> ### 👉 [Chapter 08 — Hands-On Lab: Amazon EC2 & Deploy a React App](08-lab-ec2.md)

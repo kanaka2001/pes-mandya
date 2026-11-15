@@ -1,5 +1,13 @@
 # Chapter 01 — Welcome
 
+<p align="center">
+  <img src="workshop-resources/images/aws-logo.svg" width="100" alt="AWS"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="workshop-resources/images/dbit-logo.webp" width="80" alt="DBIT"/>
+  <br/><br/>
+  <b>AWS Student Builder Group DBIT × PESCE Mandya</b>
+</p>
+
 > Welcome to the **AWS Cloud Workshop** at PES Mandya. Today you learn how the cloud works, then build real resources in the AWS Console.
 
 ---
@@ -29,11 +37,30 @@
 
 ---
 
+## 🖥️ Your AWS Console
+
+This is what the AWS Management Console looks like once you are logged in. Every lab starts from here.
+
+<p align="center">
+  <img src="workshop-resources/images/aws-console-home.png" width="720" alt="AWS Console Home"/>
+  <br/>
+  <em>AWS Management Console, the starting point for every lab</em>
+</p>
+
+---
+
+## 📸 Share the Moment
+
+> 📸 Take a photo of your setup and tag **[@awssbg_dbit](https://www.instagram.com/awssbg_dbit/)** on Instagram with **#AWSBuildersLab**.
+
+---
+
 ## ✅ Chapter Checklist
 
 - [ ] Prerequisites from Chapter 00 are complete
 - [ ] I know today's schedule
 - [ ] I have this handbook open
+- [ ] My AWS Console is accessible
 
 ---
 
